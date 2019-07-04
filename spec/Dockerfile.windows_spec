@@ -1,0 +1,7 @@
+# Required for Appveyor - microsoft/windowsservercore:latest
+# Could also use mcr.microsoft.com/windows/servercore:1903 for local testing
+FROM microsoft/windowsservercore:latest
+
+# Run forever
+ENTRYPOINT ["powershell.exe", "-NoLogo", "-NoProfile", "-Command"]
+CMD ["Start-Sleep -Seconds 2147483"]

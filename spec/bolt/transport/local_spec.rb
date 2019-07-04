@@ -13,6 +13,7 @@ require_relative 'shared_examples'
 describe Bolt::Transport::Local do
   include BoltSpec::Transport
 
+  let(:default_transport_conf) { {} }
   let(:host_and_port) { "localhost" }
   let(:user) { 'travis' }
   let(:password) { 'travis' }

@@ -1,0 +1,7 @@
+version: "3"
+services:
+  windows_node:
+    build:
+      context: .
+      dockerfile: Dockerfile.windows_spec
+    container_name: windows_node
