@@ -1,6 +1,6 @@
 # Required for Appveyor - microsoft/windowsservercore:latest
 # Could also use mcr.microsoft.com/windows/servercore:1903 for local testing
-FROM microsoft/windowsservercore:latest
+FROM mcr.microsoft.com/windows/servercore:1903
 
 # Run forever
 ENTRYPOINT ["powershell.exe", "-NoLogo", "-NoProfile", "-Command"]
