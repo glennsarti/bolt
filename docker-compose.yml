@@ -4,8 +4,9 @@ services:
     build: .
     ports:
       - "62658:62658"
-networks:
-  default:
-    external:
-      name: spec_default
+# TODO DO NOT MERGE THIS
+# networks:
+#   default:
+#     external:
+#       name: spec_default
 
