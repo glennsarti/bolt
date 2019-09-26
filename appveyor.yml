@@ -3,6 +3,8 @@ version: 0.1.0.{build}-{branch}
 cache:
   - .bundle
 
+image: Visual Studio 2017
+
 matrix:
   fast_finish: true
 
@@ -47,6 +49,11 @@ for:
           New-LocalAdmin @user
           Set-WinRMHostConfiguration
           Test-WinRMConfiguration @user | Out-Null
+      # Remove the current NAT network and pre-create the network for docker-compose
+      - ps: Remove-NetNat -Confirm:$false
+      - docker network create spec_default --driver nat 2>&1
+      # Create the needed container/s
+      - docker-compose --file spec/docker-compose-windows.yml up --detach --build 2>&1
 
     test_script:
       - bundle exec rake appveyor
